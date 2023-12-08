@@ -22,7 +22,7 @@ if __name__ == "__main__":
     plt.xlabel('$m~(MeV)$')
     plt.ylabel('Probability')
     plt.minorticks_on()
-    plt.savefig('/home3/andres.novo/TFM/first/B0_mass.png')
+    plt.savefig('/home3/andres.novo/TFM/first/B0_M.png')
 
     plt.figure()
     plt.title('Masa do mesón $B^{+}$')
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     plt.xlabel('$m~(MeV)$')
     plt.ylabel('Probability')
     plt.minorticks_on()
-    plt.savefig('/home3/andres.novo/TFM/first/Bplus_mass.png')
+    plt.savefig('/home3/andres.novo/TFM/first/Bplus_M.png')
 
 
 
