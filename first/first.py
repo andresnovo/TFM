@@ -13,10 +13,10 @@ if __name__ == "__main__":
         root = '/scratch47/forAndres/tuples/simulation/2016/'
         if p==path_B0:
             f=ur.open(root + path + '/StrippingB2KpiX2MuMuDarkBosonLine.root:B2KpiX2MuMuDarkBoson/DecayTree')
-            data=f.arrays(['piminus_PT','Kplus_PT','muminus_PT','muplus_PT', 'piminus_P', 'Kplus_P', 'muminus_P', 'muplus_P'],library='pd')
+            data=f.arrays(['piminus_PT','Kplus_PT','muminus_PT','muplus_PT', 'piminus_P', 'Kplus_P', 'muminus_P', 'muplus_P'], cut = ['muplus_TRUEID' == -13, 'muminus_TRUEID' == +13], library='pd')
         else:
             f=ur.open(root + path + '/StrippingB2KX2MuMuDarkBosonLine.root:B2KX2MuMuDarkBoson/DecayTree')
-            data=f.arrays(['Kplus_PT','muminus_PT','muplus_PT', 'Kplus_P', 'muminus_P', 'muplus_P'],library='pd')
+            data=f.arrays(['Kplus_PT','muminus_PT','muplus_PT', 'Kplus_P', 'muminus_P', 'muplus_P'], cut = ['muplus_TRUEID' == -13, 'muminus_TRUEID' == +13], library='pd')
         return data
 
        
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         ax2.set_ylabel('$P_{T}~(MeV)$')
         ax2.minorticks_on()
         plt.subplots_adjust(wspace=.5)
-        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_PT_'+ j +'.png')
+        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_PT_'+ j +'_cut.png')
 
         df.eval('pseudorapidity_1 = arccosh(piminus_P / piminus_PT)', inplace = True)
         df.eval('pseudorapidity_2 = arccosh(Kplus_P / Kplus_PT)', inplace = True)
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         ax2.set_ylabel('$Pseudorapidity$')
         ax2.minorticks_on()
         plt.subplots_adjust(wspace=.5)
-        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_pseudor_'+ j +'.png')
+        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_pseudor_'+ j +'_cut.png')
 
 for i,j in enumerate(path_Bplus):
         df=files(j,path_Bplus,m[i],t[i])
@@ -90,7 +90,7 @@ for i,j in enumerate(path_Bplus):
         ax2.set_ylabel('$P_{T}~(MeV)$')
         ax2.minorticks_on()
         plt.subplots_adjust(wspace=.5)
-        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_PT_'+ j +'.png')
+        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_PT_'+ j +'_cut.png')
 
         df.eval('pseudorapidity_1 = arccosh(Kplus_P / Kplus_PT)', inplace = True)
         df.eval('pseudorapidity_2 = arccosh(muplus_P / muplus_PT)', inplace = True)
@@ -112,6 +112,6 @@ for i,j in enumerate(path_Bplus):
         ax2.set_ylabel('$Pseudorapidity$')
         ax2.minorticks_on()
         plt.subplots_adjust(wspace=.5)
-        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_pseudor_'+ j +'.png')
+        plt.savefig('/home3/andres.novo/TFM/first/PT_plots/hist_pseudor_'+ j +'_cut.png')
 
     
