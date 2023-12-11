@@ -13,10 +13,10 @@ if __name__ == "__main__":
         root = '/scratch47/forAndres/tuples/simulation/2016/'
         if p==path_B0:
             f=ur.open(root + path + '/StrippingB2KpiX2MuMuDarkBosonLine.root:B2KpiX2MuMuDarkBoson/DecayTree')
-            data=f.arrays(['piminus_PT','Kplus_PT','muminus_PT','muplus_PT', 'piminus_P', 'Kplus_P', 'muminus_P', 'muplus_P'], cut = ['muplus_TRUEID' == -13, 'muminus_TRUEID' == +13], library='pd')
+            data=f.arrays(['piminus_PT','Kplus_PT','muminus_PT','muplus_PT', 'piminus_P', 'Kplus_P', 'muminus_P', 'muplus_P'], cut = ['Kplus_TRUEID' == 321, 'piminus_TRUEID' == -211, 'muplus_TRUEID' == -13, 'muminus_TRUEID' == +13], library='pd')
         else:
             f=ur.open(root + path + '/StrippingB2KX2MuMuDarkBosonLine.root:B2KX2MuMuDarkBoson/DecayTree')
-            data=f.arrays(['Kplus_PT','muminus_PT','muplus_PT', 'Kplus_P', 'muminus_P', 'muplus_P'], cut = ['muplus_TRUEID' == -13, 'muminus_TRUEID' == +13], library='pd')
+            data=f.arrays(['Kplus_PT','muminus_PT','muplus_PT', 'Kplus_P', 'muminus_P', 'muplus_P'], cut = ['Kplus_TRUEID' == 321, 'muplus_TRUEID' == -13, 'muminus_TRUEID' == +13], library='pd')
         return data
 
        

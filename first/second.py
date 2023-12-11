@@ -15,6 +15,7 @@ if __name__ == "__main__":
     #print(f.arrays(['muminus_PIDp'], cut = ['muminus_TRUTHID', 'muplus_TRUEID'], library = 'pd'))
     M_B0 = f0.arrays(['B_M'], library = 'pd')
     M_Bplus = f1.arrays(['B_M'], library = 'pd')
+    print(f0.arrays(['Kplus_TRUEID', 'piminus_TRUEID'], library = 'pd'))
 
     plt.figure()
     plt.title('Masa do mesón $B^{0}$')
