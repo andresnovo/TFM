@@ -20,43 +20,55 @@ def files(path,p,m,t):
     
 def plotter(path, path2, particles, particles_cut, representations, m, t):
     if path2 == path_B0:
+        hist, bin_edges = np.histogram(df_data[particles], bins = 50)
+        bin_lenght = bin_edges[1] - bin_edges[0]
+
         plt.figure(figsize = (12,7))
         plt.title('Comparativa da pseudorapidity das partículas do decaemento\n $B^{0} \longrightarrow (K^{*0}_{(892)} \longrightarrow K^{+}~\pi^{-}) (H^{0} \longrightarrow \mu^{+}~\mu^{-}) \quad m=%d~MeV \quad t=%d~ps$' %(m,t))
         plt.hist(df_data[particles], bins=50, color='darkblue', alpha=.7, label=representations)
         plt.legend(loc='best')
-        plt.xlabel('$Energy~(MeV)$')
-        plt.ylabel('$Pseudorapidity$')
+        plt.xlabel('$Pseudorapidity$')
+        plt.ylabel('N contas / %.4f' %(bin_lenght))
         plt.minorticks_on()
         plt.savefig('/home3/andres.novo/TFM/first/cut_plots/hist_'+ path + '_' + particles + '.png')
         plt.close()
+
+        hist, bin_edges = np.histogram(df_cuts[particles_cut], bins = 50)
+        bin_lenght = bin_edges[1] - bin_edges[0]
 
         plt.figure(figsize = (12,7))
         plt.title('Comparativa con "truth match cuts" da pseudorapidity das partículas do decaemento\n $B^{0} \longrightarrow (K^{*0}_{(892)} \longrightarrow K^{+}~\pi^{-}) (H^{0} \longrightarrow \mu^{+}~\mu^{-}) \quad m=%d~MeV \quad t=%d~ps$' %(m,t))
         plt.hist(df_cuts[particles_cut], bins=50, color='darkblue', alpha=.7, label=representations)
         plt.legend(loc='best')
-        plt.xlabel('$Energy~(MeV)$')
-        plt.ylabel('$Pseudorapidity$')
+        plt.xlabel('$Pseudorapidity$')
+        plt.ylabel('N contas / %.4f' %(bin_lenght))
         plt.minorticks_on()
         plt.savefig('/home3/andres.novo/TFM/first/cut_plots/hist_' + path + '_' + particles_cut + '_cut.png')
         plt.close()
 
     else:
+        hist, bin_edges = np.histogram(df_data[particles], bins = 50)
+        bin_lenght = bin_edges[1] - bin_edges[0]
+
         plt.figure(figsize = (12,7))
         plt.title('Comparativa da pseudorapidity das partículas do decaemento\n$B^{+}~\longrightarrow~K^{+}~(H^{0}~\longrightarrow~\mu^{+}~ \mu{-}) \quad m=%d~MeV \quad t=%d~ps$' %(m,t))
         plt.hist(df_data[particles], bins=50, color='darkblue', alpha=.7, label=representations)
         plt.legend(loc='best')
-        plt.xlabel('$Energy~(MeV)$')
-        plt.ylabel('$Pseudorapidity$')
+        plt.xlabel('$Pseudorapidity$')
+        plt.ylabel('N contas / %.4f' %(bin_lenght))
         plt.minorticks_on()
         plt.savefig('/home3/andres.novo/TFM/first/cut_plots/hist_' + path + '_' + particles + '.png')
         plt.close()
+
+        hist, bin_edges = np.histogram(df_cuts[particles_cut], bins = 50)
+        bin_lenght = bin_edges[1] - bin_edges[0]
 
         plt.figure(figsize = (12,7))
         plt.title('Comparativa con "truth match cuts" da pseudorapidity das partículas do decaemento\n$B^{+}~\longrightarrow~K^{+}~(H^{0}~\longrightarrow~\mu^{+}~ \mu{-}) \quad m=%d~MeV \quad t=%d~ps$' %(m,t))
         plt.hist(df_cuts[particles_cut], bins=50, color='darkblue', alpha=.7, label=representations)
         plt.legend(loc='best')
-        plt.xlabel('$Energy~(MeV)$')
-        plt.ylabel('$Pseudorapidity$')
+        plt.xlabel('$Pseudorapidity$')
+        plt.ylabel('N contas / %.4f' %(bin_lenght))
         plt.minorticks_on()
         plt.savefig('/home3/andres.novo/TFM/first/cut_plots/hist_' + path + '_' + particles_cut + '_cut.png')
         plt.close()
